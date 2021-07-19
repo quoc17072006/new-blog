@@ -39,7 +39,7 @@ export default function Home() {
             </Head>
             <div className="pt-6 pb-8 space-y-2 md:space-y-5">
               <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-[4rem] md:leading-[3.5rem]">
-                Welcome to my blog!!!
+                Welcome to my blog!
               </h1>
               <p className="text-lg text-gray-500">
                 Hey everyone, this is the place where I jot down my thoughts,
