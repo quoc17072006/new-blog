@@ -48,12 +48,12 @@ export default function Header() {
       </div>
       <div className="text-base leading-5">
         <a
-          href="https://github.com/quoc17072006/preview-blog-posts"
+          href="https://github.com/quoc17072006/my-blog"
           target="_blank"
           rel="noreferrer"
           className="font-medium text-gray-500 hover:text-gray-700"
         >
-          Visit our community &rarr;
+          Contribute to our project &rarr;
         </a>
       </div>
     </header>
