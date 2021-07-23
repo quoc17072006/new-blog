@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "build:rss": "node ./.next/server/scripts/build-rss.js",
+    "build:rss": "node ./.next/server/scripts/build-rss.js.js",
     "lint": "next lint",
     "lint:fix": "yarn lint --fix"
   },
@@ -20,7 +20,7 @@
     "next": "^11.0.1",
     "postcss": "^8.3.6",
     "prismjs": "^1.24.1",
-    "react": "^17.0.1",
+    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "tailwindcss": "^2.2.6",
     "tinytime": "^0.2.6"

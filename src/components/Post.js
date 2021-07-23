@@ -12,6 +12,7 @@ const postDateTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
 
 export default function Post({ meta, children, posts }) {
 	const router = useRouter()
+
 	if (meta.private) {
 		return (
 			<>
@@ -91,9 +92,11 @@ export default function Post({ meta, children, posts }) {
 			</>
 		)
 	}
+
 	const postIndex = posts.findIndex(post => post.link === router.pathname)
 	const previous = posts[postIndex + 1]
 	const next = posts[postIndex - 1]
+
 	return (
 		<>
 			<SectionContainer>

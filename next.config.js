@@ -1,92 +1,94 @@
 const { createLoader } = require('simple-functional-loader')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+	enabled: process.env.ANALYZE === 'true',
 })
 const withSyntaxHighlighting = require('./remark/withSyntaxHighlighting')
 
 module.exports = withBundleAnalyzer({
-  pageExtensions: ['js', 'jsx', 'mdx'],
-  experimental: {
-    modern: true,
-  },
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.(svg|png|jpe?g|gif|mp4)$/i,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            publicPath: '/_next',
-            name: 'static/media/[name].[hash].[ext]',
-          },
-        },
-      ],
-    })
+	pageExtensions: ['js', 'jsx', 'mdx'],
 
-    const mdx = [
-      options.defaultLoaders.babel,
-      {
-        loader: '@mdx-js/loader',
-        options: {
-          remarkPlugins: [withSyntaxHighlighting],
-        },
-      },
-    ]
+	experimental: {
+		modern: true,
+	},
 
-    config.module.rules.push({
-      test: /\.mdx$/,
-      oneOf: [
-        {
-          resourceQuery: /preview/,
-          use: [
-            ...mdx,
-            createLoader(function (src) {
-              if (src.includes('<!--more-->')) {
-                const [preview] = src.split('<!--more-->')
-                return this.callback(null, preview)
-              }
+	webpack: (config, options) => {
+		config.module.rules.push({
+			test: /\.(svg|png|jpe?g|gif|mp4)$/i,
+			use: [
+				{
+					loader: 'file-loader',
+					options: {
+						publicPath: '/_next',
+						name: 'static/media/[name].[hash].[ext]',
+					},
+				},
+			],
+		})
 
-              const [preview] = src.split('<!--/excerpt-->')
-              return this.callback(null, preview.replace('<!--excerpt-->', ''))
-            }),
-          ],
-        },
-        {
-          resourceQuery: /rss/,
-          use: mdx,
-        },
-        {
-          use: [
-            ...mdx,
-            createLoader(function (src) {
-              const content = [
-                'import Post from "@/components/Post"',
-                'export { getStaticProps } from "@/getStaticProps"',
-                src,
-                'export default Post',
-              ].join('\n')
+		const mdx = [
+			options.defaultLoaders.babel,
+			{
+				loader: '@mdx-js/loader',
+				options: {
+					remarkPlugins: [withSyntaxHighlighting],
+				},
+			},
+		]
 
-              if (content.includes('<!--more-->')) {
-                return this.callback(null, content.split('<!--more-->').join('\n'))
-              }
+		config.module.rules.push({
+			test: /\.mdx$/,
+			oneOf: [
+				{
+					resourceQuery: /preview/,
+					use: [
+						...mdx,
+						createLoader(function(src) {
+							if (src.includes('<!--more-->')) {
+								const [preview] = src.split('<!--more-->')
+								return this.callback(null, preview)
+							}
 
-              return this.callback(null, content.replace(/<!--excerpt-->.*<!--\/excerpt-->/s, ''))
-            }),
-          ],
-        },
-      ],
-    })
+							const [preview] = src.split('<!--/excerpt-->')
+							return this.callback(null, preview.replace('<!--excerpt-->', ''))
+						}),
+					],
+				},
+				{
+					resourceQuery: /rss/,
+					use: mdx,
+				},
+				{
+					use: [
+						...mdx,
+						createLoader(function(src) {
+							const content = [
+								'import Post from "@/components/Post"',
+								'export { getStaticProps } from "@/getStaticProps"',
+								src,
+								'export default Post',
+							].join('\n')
 
-    if (!options.dev && options.isServer) {
-      const originalEntry = config.entry
+							if (content.includes('<!--more-->')) {
+								return this.callback(null, content.split('<!--more-->').join('\n'))
+							}
 
-      config.entry = async () => {
-        const entries = { ...(await originalEntry()) }
-        entries['./scripts/build-rss.js'] = './scripts/build-rss.js'
-        return entries
-      }
-    }
+							return this.callback(null, content.replace(/<!--excerpt-->.*<!--\/excerpt-->/s, ''))
+						}),
+					],
+				},
+			],
+		})
 
-    return config
-  },
+		if (!options.dev && options.isServer) {
+			const originalEntry = config.entry
+
+			config.entry = async () => {
+				const entries = { ...(await originalEntry()) }
+				entries['./scripts/build-rss.js'] = './scripts/build-rss.js'
+				return entries
+			}
+		}
+
+		return config
+	},
 })
