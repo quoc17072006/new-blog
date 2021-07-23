@@ -4,16 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && npm run build:rss",
+    "build": "next build && next export",
     "start": "next start",
-    "build:rss": "node ./.next/server/scripts/build-rss.js"
+    "build:rss": "node ./.next/server/scripts/build-rss.js",
+    "lint": "next lint",
+    "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.1",
-    "next": "^10.2.3",
+    "eslint": "^7.31.0",
+    "eslint-config-next": "^11.0.1",
+    "next": "^11.0.1",
     "postcss": "^8.3.6",
     "prismjs": "^1.24.1",
     "react": "^17.0.1",

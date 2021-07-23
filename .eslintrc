@@ -1,0 +1,7 @@
+{
+  "extends": "next",
+  "rules": {
+    "semi": "off",
+    "react/no-unescaped-entities": "off"
+  }
+}
