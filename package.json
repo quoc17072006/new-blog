@@ -8,7 +8,7 @@
     "start": "next start",
     "build:rss": "node ./.next/server/scripts/build-rss.js.js",
     "lint": "next lint",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",

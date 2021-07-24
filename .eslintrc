@@ -1,7 +1,8 @@
 {
-  "extends": "next",
+  "extends": ["eslint:recommended", "next"],
   "rules": {
     "semi": "off",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "eqeqeq": "warn"
   }
 }
