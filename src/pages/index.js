@@ -25,7 +25,10 @@ export default function Home() {
 								name="description"
 								content="This is the place where I jot down my thoughts, and many other things."
 							/>
-							<meta property="og:url" content="https://quoc17072006-blog.vercel.app" />
+							<meta
+								property="og:url"
+								content="https://quoc17072006-blog.vercel.app"
+							/>
 							<meta property="og:type" content="article" />
 							<meta property="og:image" content={quoc17072006} />
 							<meta property="og:title" content="Quoc's Blog" />
@@ -39,7 +42,8 @@ export default function Home() {
 								Welcome to my blog!
 							</h1>
 							<p className="text-lg text-gray-500">
-								Hey everyone, this is the place where I jot down my thoughts, and many other things.
+								Hey everyone, this is the place where I jot down my thoughts,
+								and many other things.
 							</p>
 						</div>
 						<ul className="divide-y divide-gray-200">

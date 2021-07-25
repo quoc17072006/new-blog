@@ -23,7 +23,9 @@ export default function Post({ meta, children, posts }) {
 								<meta name="description" content={meta.description} />
 								<meta
 									property="og:url"
-									content={`https://quoc17072006-blog.vercel.app/${router.pathname}`}
+									content={`https://quoc17072006-blog.vercel.app/${
+										router.pathname
+									}`}
 								/>
 								<meta property="og:type" content="article" />
 								<meta property="og:title" content={meta.title} />
@@ -63,7 +65,10 @@ export default function Post({ meta, children, posts }) {
 										<dd>
 											<ul className="flex items-center justify-center">
 												{meta.authors.map(author => (
-													<li key={author.contact} className="flex items-center space-x-2">
+													<li
+														key={author.contact}
+														className="flex items-center space-x-2"
+													>
 														<img
 															src={author.avatar}
 															alt=""
@@ -109,11 +114,16 @@ export default function Post({ meta, children, posts }) {
 							<meta name="description" content={meta.description} />
 							<meta
 								property="og:url"
-								content={`https://quoc17072006-blog.vercel.app/${router.pathname}`}
+								content={`https://quoc17072006-blog.vercel.app/${
+									router.pathname
+								}`}
 							/>
 							<meta property="og:type" content="article" />
 							<meta property="og:title" content={meta.title} />
-							<meta property="og:image" content={`https://quoc17072006-blog.vercel.app/${meta.image}`} />
+							<meta
+								property="og:image"
+								content={`https://quoc17072006-blog.vercel.app/${meta.image}`}
+							/>
 							<meta property="og:description" content={meta.description} />
 						</Head>
 						<header className="pt-6 xl:pb-10">
@@ -142,8 +152,15 @@ export default function Post({ meta, children, posts }) {
 								<dd>
 									<ul className="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
 										{meta.authors.map(author => (
-											<li key={author.contact} className="flex items-center space-x-2">
-												<img src={author.avatar} alt="" className="w-10 h-10 rounded-full" />
+											<li
+												key={author.contact}
+												className="flex items-center space-x-2"
+											>
+												<img
+													src={author.avatar}
+													alt=""
+													className="w-10 h-10 rounded-full"
+												/>
 												<dl className="text-sm font-medium whitespace-no-wrap">
 													<dt className="sr-only">Name</dt>
 													<dd className="text-gray-900">{author.name}</dd>
@@ -169,7 +186,10 @@ export default function Post({ meta, children, posts }) {
 									<MDXProvider>{children}</MDXProvider>
 								</div>
 								{meta.footer && (
-									<div className="pt-6 pb-16" dangerouslySetInnerHTML={{ __html: meta.footer }} />
+									<div
+										className="pt-6 pb-16"
+										dangerouslySetInnerHTML={{ __html: meta.footer }}
+									/>
 								)}
 								{!meta.footer &&
 									meta.discussion && (
@@ -217,7 +237,9 @@ export default function Post({ meta, children, posts }) {
 								)}
 								<div className="pt-8">
 									<Link href="/">
-										<a className="text-teal-600 hover:text-teal-700">&larr; Back to the blog</a>
+										<a className="text-teal-600 hover:text-teal-700">
+											&larr; Back to the blog
+										</a>
 									</Link>
 								</div>
 							</footer>
