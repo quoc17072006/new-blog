@@ -48,7 +48,8 @@ export default function Header() {
 			</div>
 			<div className="text-base leading-5">
 				<a
-					href="https://github.com/quoc17072006/my-blog"
+					aria-label="Github repo"
+					href="https://github.com/quoc17072006/new-blog"
 					target="_blank"
 					rel="noreferrer"
 					className="font-medium text-gray-500 hover:text-gray-700"
