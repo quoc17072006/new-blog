@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'npm' # npm and Yarn have same value
-    directory: '/'
-    schedule:
-      interval: 'daily'
-    target-branch: 'beta' # merge commits from other branches into `main` directly can cause some unexpected errors
+    - package-ecosystem: 'npm' # npm and Yarn have same value
+      directory: '/'
+      schedule:
+          interval: 'daily'
+      target-branch: 'beta' # merge commits from other branches into `main` directly can cause some unexpected errors
