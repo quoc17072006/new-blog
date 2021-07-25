@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import PageTitle from '@/components/PageTitle'
 import tinytime from 'tinytime'
 import Link from 'next/link'
@@ -65,7 +64,7 @@ export default function Post({ meta, children, posts }) {
 											<ul className="flex items-center justify-center">
 												{meta.authors.map(author => (
 													<li key={author.contact} className="flex items-center space-x-2">
-														<Image
+														<img
 															src={author.avatar}
 															alt=""
 															className="w-8 h-8 rounded-full"
@@ -144,7 +143,7 @@ export default function Post({ meta, children, posts }) {
 									<ul className="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
 										{meta.authors.map(author => (
 											<li key={author.contact} className="flex items-center space-x-2">
-												<Image src={author.avatar} alt="" className="w-10 h-10 rounded-full" />
+												<img src={author.avatar} alt="" className="w-10 h-10 rounded-full" />
 												<dl className="text-sm font-medium whitespace-no-wrap">
 													<dt className="sr-only">Name</dt>
 													<dd className="text-gray-900">{author.name}</dd>
@@ -152,6 +151,8 @@ export default function Post({ meta, children, posts }) {
 													<dd>
 														<a
 															href={author.contact}
+															target="_blank"
+															rel="noreferrer"
 															className="text-teal-600 hover:text-teal-700"
 														>
 															@{author.nickname}
