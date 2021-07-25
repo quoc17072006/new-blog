@@ -94,18 +94,26 @@ import { Menu } from '@headlessui/react'
 function MyDropdown() {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="px-4 py-2 rounded bg-blue-600 text-white ...">Options</Menu.Button>
+      <Menu.Button className="px-4 py-2 rounded bg-blue-600 text-white ...">
+        Options
+      </Menu.Button>
       <Menu.Items className="absolute mt-1 right-0">
         <Menu.Item>
           {({ active }) => (
-            <a className={`${active && 'bg-blue-500 text-white'} ...`} href="/account-settings">
+            <a
+              className={`${active && 'bg-blue-500 text-white'} ...`}
+              href="/account-settings"
+            >
               Account settings
             </a>
           )}
         </Menu.Item>
         <Menu.Item>
           {({ active }) => (
-            <a className={`${active && 'bg-blue-500 text-white'} ...`} href="/documentation">
+            <a
+              className={`${active && 'bg-blue-500 text-white'} ...`}
+              href="/documentation"
+            >
               Documentation
             </a>
           )}
@@ -124,7 +132,10 @@ You'll notice that to do things like style the "active" dropdown item, we use a 
 ```jsx
 <Menu.Item>
   {({ active }) => (
-    <a className={`${active && 'bg-blue-500 text-white'} ...`} href="/documentation">
+    <a
+      className={`${active && 'bg-blue-500 text-white'} ...`}
+      href="/documentation"
+    >
       Documentation
     </a>
   )}
@@ -298,7 +309,9 @@ export default function Example() {
                           <a
                             href="#"
                             className={classNames(
-                              active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700',
                               'block px-4 py-2 text-sm'
                             )}
                           >
@@ -311,7 +324,9 @@ export default function Example() {
                           <a
                             href="#"
                             className={classNames(
-                              active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700',
                               'block px-4 py-2 text-sm'
                             )}
                           >
