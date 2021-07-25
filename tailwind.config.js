@@ -17,16 +17,16 @@ module.exports = {
 			fontFamily: {
 				sans: ['Inter var', ...defaultTheme.fontFamily.sans],
 			},
+
 			colors: {
 				teal: colors.cyan,
-
-				// for syntax highlighting
 				fuchsia: colors.fuchsia,
 				lime: colors.lime,
 				sky: colors.sky,
 				rose: colors.rose,
 				emerald: colors.emerald,
 			},
+
 			typography: theme => ({
 				DEFAULT: {
 					css: {
